@@ -231,25 +231,43 @@ tmpfs                     732M  9.4M  723M   2% /run
 tmpfs                     366M     0  366M   0% /run/user/1000
 ```
 
-## 3. Prepare another partition
-
-Pour la suite du TP, on va préparer une dernière partition. Il devrait vous rester 20G de libre avec le disque de 40 que vous venez d'ajouter.
-
-**Cette partition contiendra des fichiers HTML pour des sites web (fictifs).**
-
 🌞 **Créez une nouvelle partition**
 
 ```
 [antna@node1 ~]$ sudo lvcreate -L 20G -n web rl_vbox
   Logical volume "web" created.
-```
 
-- le LV doit s'appeler `web`
-- elle doit faire 20G et être formatée en ext4
-- il faut la monter sur `/var/www`
+[antna@node1 ~]$ sudo mkfs.ext4 /dev/sdb2
+mke2fs 1.46.5 (30-Dec-2021)
+/dev/sdb2 is apparently in use by the system; will not make a filesystem here!
+[antna@node1 ~]$ sudo mkfs.ext4 /dev/rl_vbox/web
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 5242880 4k blocks and 1310720 inodes
+Filesystem UUID: 9ac3662a-95cc-4fbb-ad5c-9126b4b0bc82
+Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
+        4096000
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (32768 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+[antna@node1 ~]$ sudo mount /dev/rl_vbox/web /var/www
+[antna@node1 ~]$ df -h
+Filesystem                Size  Used Avail Use% Mounted on
+devtmpfs                  4.0M     0  4.0M   0% /dev
+tmpfs                     1.8G     0  1.8G   0% /dev/shm
+tmpfs                     732M  9.5M  723M   2% /run
+/dev/mapper/rl_vbox-root  9.8G  1.5G  7.8G  16% /
+/dev/sda2                 974M  272M  635M  30% /boot
+/dev/mapper/rl_vbox-home   36G   17G   20G  45% /home
+tmpfs                     366M     0  366M   0% /run/user/1000
+/dev/mapper/rl_vbox-web    20G   24K   19G   1% /var/www
+```
 
 🌞 **Proposez au moins une option de montage**
 
-- au moment où on monte la partition (avec fstab ou la commande `mount`), on peut choisir des options de montage
-- proposez au moins une option de montage qui augmente le niveau de sécurité lors de l'utilisation de la partition
-- je rappelle que la partition ne contiendra que des fichiers HTML
+```
+[antna@node1 ~]$ sudo mount -o noexec /dev/rl_vbox/web /var/www
+```

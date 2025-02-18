@@ -19,7 +19,7 @@
 🌞 **Déterminer la liste des programmes qui écoutent sur un port TCP**
 
 ```
-[antna@node1 ~]$ sudo ss -tulpn | grep 'tcp'
+[antna@node1 ~]$ sudo ss -tulpn | grep tcp
 tcp   LISTEN 0      128          0.0.0.0:22        0.0.0.0:*    users:(("sshd",pid=723,fd=3))
 tcp   LISTEN 0      128             [::]:22           [::]:*    users:(("sshd",pid=723,fd=4))
 ```
@@ -27,7 +27,7 @@ tcp   LISTEN 0      128             [::]:22           [::]:*    users:(("sshd",p
 🌞 **Déterminer la liste des programmes qui écoutent sur un port UDP**
 
 ```
-[antna@node1 ~]$ sudo ss -tulpn | grep 'udp'
+[antna@node1 ~]$ sudo ss -tulpn | grep udp
 udp   UNCONN 0      0          127.0.0.1:323       0.0.0.0:*    users:(("chronyd",pid=688,fd=5))
 udp   UNCONN 0      0              [::1]:323          [::]:*    users:(("chronyd",pid=688,fd=6))
 ```

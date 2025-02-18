@@ -15,7 +15,7 @@ sr0               11:0    1 1024M  0 rom
 🌞 **Mettre en évidence la ligne de configuration `sudo` qui concerne le groupe `wheel`**
 
 ```
-[antna@node1 ~]$ sudo cat /etc/sudoers | grep '%wheel'
+[antna@node1 ~]$ sudo cat /etc/sudoers | grep %wheel
 %wheel  ALL=(ALL)       ALL
 ```
 
@@ -29,7 +29,7 @@ antna wheel
 🌞 **Prouvez que la langue configurée pour l'OS est bien l'anglais**
 
 ```
-[antna@node1 ~]$ locale | grep 'LANG'
+[antna@node1 ~]$ locale | grep LANG
 LANG=en_US.UTF-8
 ```
 
