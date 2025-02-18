@@ -42,7 +42,8 @@ antna:$6$NkRjinwFu/o/FksO$FR.s2uxlOuHrDlLumbMcMNVe41C/N0ErcV3Nst.fkL3Hcovqvcfh1s
 
 🌞 **Déterminer la fonction de hachage qui a été utilisée**
 
-`antna:$6$NkRjinwFu/o/FksO$FR.s2uxlOuHrDlLumbMcMNVe41C/N0ErcV3Nst.fkL3Hcovqvcfh1soUKhDmQq.V7BrEiMPAWzuH66mqPkI5u/`
+`antna:$6$NkRjinwFu/o/FksO$FR.s2uxlOuHrDlLumbMcMNVe41C/N0ErcV3Nst.fkL3Hcovqvcfh1soUKhDmQq.V7BrEiMPAWzuH66mqPkI5u/` 
+
         ^ id : 6, donc c'est la fonction de hashage sha-512 qui a été utilisé
 
 ```
