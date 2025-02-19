@@ -101,12 +101,6 @@ time     seconds  usecs/call     calls    errors syscall
 
 [fichier curl.scap](curl.scap)
 
-> `sysdig` est un outil moderne qui sert de base à toute la suite d'outils de la boîte du même nom. On pense par exemple à Falco qui permet de tracer, monitorer, lever des alertes sur des *syscalls* , au sein d'un cluster Kubernetes.
-
 ## 3. Bonus : Stratoshark
 
-Un tout nouveau tool bien stylé : [Stratoshark](https://wiki.wireshark.org/Stratoshark). L'interface de Wireshark (et ses fonctionnalités de fou) mais pour visualiser des captures de *syscalls*  (et autres).
-
-Vous prenez pas trop la tête avec ça, mais si vous voulez vous amuser avec une interface stylée, il est là !
-
-Vous pouvez exporter une capture `sysdig` avec `sysdig -w meo.scap proc.name=echo` par exemple, et la lire dans Stratoshark. 
+![stratoshark](stratoshark.png)
