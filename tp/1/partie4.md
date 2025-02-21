@@ -139,7 +139,10 @@ antna
 [antna@node1 meow]$
 ```
 
-`meow ALL=(meow) /bin/ls, /bin/cat, /usr/bin/less, /usr/bin/more`
+```
+meow ALL=(antna) /bin/ls, /bin/cat, /usr/bin/less, /usr/bin/more
+antna ALL=(root)  ALL # On enleve le NOPASSWD
+``` 
 
 🌞 **Déterminer les permissions des fichiers/dossiers...**
 

