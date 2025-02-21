@@ -172,5 +172,5 @@ Et en regardant les syscall de l'utilisateur `calculatrice`:
 🌞 **Adaptez le `.service`**
 
 ```bash
-SyscallFilter=read close fstat lseek mmap mprotect munmap brk rt_sigaction ioctl pread64 access dup socket bind listen getsockname setsockopt fcntl readlink sysinfo getuid getgid geteuid getegid arch_prctl futex getdents64 set_tid_address openat newfstatat set_robust_list accept4 epoll_create1 prlimit64 getrandom rseq
+SyscallFilter=~execve clone3
 ```
